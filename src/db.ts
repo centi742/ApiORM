@@ -10,5 +10,5 @@ export const AppDataSource = new DataSource({
     database: 'ApiORM',
     logging: true,
     entities:[User],
-    synchronize:true,
+    //synchronize:true,
 })
