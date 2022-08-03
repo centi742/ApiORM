@@ -8,8 +8,8 @@ async function main() {
    try {
     await AppDataSource.initialize();
     console.log('database is conected');
-    app.listen(3000);
-    console.log('this app listening in por',3000);
+    app.listen(3080);
+    console.log('this app listening in por',3080);
    } catch (error) {
        console.log(error);
    }
