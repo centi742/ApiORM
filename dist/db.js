@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppDataSource = void 0;
 const typeorm_1 = require("typeorm");
+const marca_1 = require("./entities/marca");
+const modelo_1 = require("./entities/modelo");
+const transmicion_1 = require("./entities/transmicion");
 const user_1 = require("./entities/user");
 exports.AppDataSource = new typeorm_1.DataSource({
     type: 'mysql',
@@ -11,6 +14,6 @@ exports.AppDataSource = new typeorm_1.DataSource({
     port: 3306,
     database: 'ApiORM',
     logging: true,
-    entities: [user_1.User],
+    entities: [user_1.User, transmicion_1.Transmicion, modelo_1.Modelo, marca_1.Marca],
     //synchronize:true,
 });

@@ -20,8 +20,8 @@ function main() {
         try {
             yield db_1.AppDataSource.initialize();
             console.log('database is conected');
-            app_1.default.listen(3000);
-            console.log('this app listening in por', 3000);
+            app_1.default.listen(3080);
+            console.log('this app listening in por', 3080);
         }
         catch (error) {
             console.log(error);
