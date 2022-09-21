@@ -94,3 +94,8 @@ export const UserUpdate = async(req:Request, res:Response)=>{
   console.log(error);
  }
 }
+
+export const getProducts = async (req: Request, res: Response) => {
+
+  await res.send("products");
+};

@@ -72,6 +72,7 @@ res.send("you are in products!");
 
 
 export const getProducts = async (req: Request, res: Response) => {
-
-  res.send("products");
+  console.log('hola')
+ 
+  await res.send("products");
 };

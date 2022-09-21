@@ -71,6 +71,7 @@ const CreateProducs = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 });
 exports.CreateProducs = CreateProducs;
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("products");
+    console.log('hola');
+    yield res.send("products");
 });
 exports.getProducts = getProducts;

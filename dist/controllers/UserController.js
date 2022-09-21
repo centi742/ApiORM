@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserUpdate = exports.DeleteUser = exports.getUserById = exports.getUser = exports.createUser = void 0;
+exports.getProducts = exports.UserUpdate = exports.DeleteUser = exports.getUserById = exports.getUser = exports.createUser = void 0;
 const user_1 = require("../entities/user");
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -95,3 +95,7 @@ const UserUpdate = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.UserUpdate = UserUpdate;
+const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield res.send("products");
+});
+exports.getProducts = getProducts;
