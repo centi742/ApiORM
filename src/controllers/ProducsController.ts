@@ -51,7 +51,7 @@ try{
   producs.photo = filename;
  
   await photo.save();
-
+  res.send("you are in products!");
   res.status(200).json({
     ok: true,
     message: "operacion exitosa"
