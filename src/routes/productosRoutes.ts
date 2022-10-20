@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 import multer from "multer";
 
-import { createProducts,getProducts,Pruebaimagen} from "../controllers/ProducsController";
+import { createProducts,getProducts,getImagenes} from "../controllers/ProducsController";
 
-const dirpath = path.join(__dirname,'/uploads');
+const dirpath = path.join(__dirname,'../uploads/products');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -29,5 +29,7 @@ const produtosRoutes = Router();
 //produtosRoutes.post('/productos',createProducts);
 produtosRoutes.get('/productos',getProducts);
 
-produtosRoutes.post('/producto/uploads',upload.single('imagen'),Pruebaimagen);
+produtosRoutes.post('/producto',upload.single('imagen'),createProducts);
+
+produtosRoutes.get('/producto/imagen/:image',getImagenes);
 export default produtosRoutes;
