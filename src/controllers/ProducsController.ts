@@ -65,3 +65,10 @@ export const getImagenes = async(req:Request,res:Response)=>{
     res.sendFile(pahtImagenoimagen);
   }
 }
+
+export const deleteProducts = async(req:Request,res:Response)=>{
+  const id = req.params.id;
+  const imagen = req.params.image;
+
+  await console.log(id);
+}

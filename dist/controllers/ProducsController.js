@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getImagenes = exports.createProducts = exports.getProducts = void 0;
+exports.deleteProducts = exports.getImagenes = exports.createProducts = exports.getProducts = void 0;
 const producs_1 = require("../entities/producs");
 const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
@@ -65,3 +65,9 @@ const getImagenes = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.getImagenes = getImagenes;
+const deleteProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    const imagen = req.params.image;
+    yield console.log(id);
+});
+exports.deleteProducts = deleteProducts;

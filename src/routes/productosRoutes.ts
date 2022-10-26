@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 import multer from "multer";
 
-import { createProducts,getProducts,getImagenes} from "../controllers/ProducsController";
+import { createProducts,getProducts,getImagenes, deleteProducts} from "../controllers/ProducsController";
 
 const dirpath = path.join(__dirname,'../uploads/products');
 
@@ -29,7 +29,9 @@ const produtosRoutes = Router();
 //produtosRoutes.post('/productos',createProducts);
 produtosRoutes.get('/productos',getProducts);
 
-produtosRoutes.post('/producto',upload.single('imagen'),createProducts);
+produtosRoutes.post('/productos',upload.single('imagen'),createProducts);
 
-produtosRoutes.get('/producto/imagen/:image',getImagenes);
+produtosRoutes.get('/productos/imagen/:image',getImagenes);
+
+produtosRoutes.delete('/productos/:id/',deleteProducts);
 export default produtosRoutes;
