@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Marca = void 0;
 const typeorm_1 = require("typeorm");
+const catalogo_1 = require("./catalogo");
 let Marca = class Marca extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -21,6 +22,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Marca.prototype, "nombre", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)((type) => catalogo_1.Catalogo, (catalogo) => catalogo.Marca),
+    __metadata("design:type", catalogo_1.Catalogo)
+], Marca.prototype, "catalogo", void 0);
 Marca = __decorate([
     (0, typeorm_1.Entity)()
 ], Marca);

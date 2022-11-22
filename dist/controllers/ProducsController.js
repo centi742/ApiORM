@@ -18,10 +18,34 @@ const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const allProducts = yield producs_1.Producs.find();
-        res.send(allProducts);
+        const Photo = yield producs_1.Producs.find({
+            select: {
+                photo: true,
+            },
+        });
+        const pahtImage = path_1.default.resolve(__dirname, `../uploads/products/${Photo}`);
+        if (yield fs_extra_1.default.existsSync(pahtImage)) {
+            const allProducts = yield producs_1.Producs.find({
+                select: {
+                    id: true,
+                    name: true,
+                    photo: false,
+                    descripcion: true,
+                    createdAd: false,
+                    updateAd: false,
+                },
+            });
+            res.sendFile(pahtImage);
+            res.send(allProducts);
+        }
+        else {
+            const pahtImagenoimagen = path_1.default.resolve(__dirname, "../uploads/2748558.png");
+            res.sendFile(pahtImagenoimagen);
+        }
+        //res.send(allProducts);
     }
     catch (_a) {
+        res.send("lo siento hay un error");
     }
 });
 exports.getProducts = getProducts;
@@ -34,10 +58,10 @@ const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         producto.descripcion = descripcion;
         producto.photo = imagen === null || imagen === void 0 ? void 0 : imagen.filename;
         yield producto.save();
-        console.log('user is saved');
+        console.log("user is saved");
         return res.status(200).json({
             ok: true,
-            message: "user is saved"
+            message: "user is saved",
         });
         //const filextencion = imagen?.mimetype.split('/')[1];;
         //const nameFile = `${imagen?.filename}.${filextencion}`;
@@ -48,7 +72,7 @@ const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
     catch (_b) {
         return res.status(500).json({
             ok: false,
-            message: "error saved producs"
+            message: "error saved producs",
         });
     }
 });

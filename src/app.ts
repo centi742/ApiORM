@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import userRouter from "./routes/userRoutes";
 import produtosRoutes from './routes/productosRoutes';
+import CatalogoRouter from './routes/catalogoRoutes';
 //import fileUpload from 'express-fileupload';
 import multer from 'multer';
 
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(userRouter);
 app.use(produtosRoutes);
-
+app.use(CatalogoRouter);
 
 
 export default app;

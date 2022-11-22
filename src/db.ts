@@ -14,6 +14,6 @@ export const AppDataSource = new DataSource({
     port: 3306,
     database: 'ApiORM',
     logging: true,
-    entities:[User,Transmicion,Modelo,Marca,Producs],
-    //synchronize:true,
+    entities:[User,Transmicion,Modelo,Marca,Producs,Catalogo],
+    synchronize:true,
 })

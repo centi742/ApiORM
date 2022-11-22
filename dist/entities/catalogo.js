@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Catalogo = void 0;
 const typeorm_1 = require("typeorm");
+const marca_1 = require("./marca");
 let Catalogo = class Catalogo extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -20,19 +21,35 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Catalogo.prototype, "name", void 0);
+], Catalogo.prototype, "Photo", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(type => marca_1.Marca, {
+        eager: true,
+        //cascade:true
+    }),
+    (0, typeorm_1.JoinColumn)({ name: 'Id_marca' }),
+    __metadata("design:type", marca_1.Marca)
+], Catalogo.prototype, "Marca", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Catalogo.prototype, "email", void 0);
+], Catalogo.prototype, "descripcion", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Catalogo.prototype, "phone", void 0);
+], Catalogo.prototype, "precio", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Catalogo.prototype, "password", void 0);
+], Catalogo.prototype, "transmicion", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Catalogo.prototype, "tipo", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Catalogo.prototype, "year", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
